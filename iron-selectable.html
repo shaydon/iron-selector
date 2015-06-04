@@ -114,6 +114,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
 
     attached: function() {
+      if (this.selected != null) {
+        this._updateSelected();
+      }
       this._observer = this._observeItems(this);
       this._contentObserver = this._observeContent(this);
     },
