@@ -113,9 +113,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       this._selection = new Polymer.IronSelection(this._applySelection.bind(this));
     },
 
-    attached: function() {
+    ready: function() {
       this._observer = this._observeItems(this);
       this._contentObserver = this._observeContent(this);
+    },
+
+    attached: function() {
+      this._observer = this._observer || this._observeItems(this);
+      this._contentObserver = this._contentObserver || this._observeContent(this);
     },
 
     detached: function() {
